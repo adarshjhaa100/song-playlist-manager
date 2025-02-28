@@ -12,15 +12,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class SongPagination(PageNumberPagination):
-    page_size = 10
-    page_size_query_param = 'page_size'
-    max_page_size = 100
+# class SongPagination(PageNumberPagination):
+#     page_size = 100
+#     page_size_query_param = 'page_size'
+#     max_page_size = 100
 
 class SongList(generics.ListAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
-    pagination_class = SongPagination
+    # pagination_class = SongPagination
     http_method_names = ["get","post"]
 
 class SongDetail(generics.RetrieveAPIView):
