@@ -28,7 +28,7 @@ Frontend:
   - Run server: python manage.py runserver
 
 **Frontend**
-  cd into /song-playlist-ui
-  npm install
-  npm run dev
-  visit http://localhost:5173
+  > cd into /song-playlist-ui
+  > npm install
+  > npm run dev
+  - visit http://localhost:5173
