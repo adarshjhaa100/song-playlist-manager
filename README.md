@@ -26,6 +26,9 @@ Frontend:
   - Make and Run Migrations
       > For syncing db changes
   - Run server: python manage.py runserver
+  - Upload the given input json file. Can use the given curl:
+    > curl --location 'http://127.0.0.1:8000/songs/upload/' \
+--form 'file=@"/path/to/file"'
 
 **Frontend**
   > cd into /song-playlist-ui
