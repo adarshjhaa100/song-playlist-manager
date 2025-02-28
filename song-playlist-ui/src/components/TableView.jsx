@@ -36,6 +36,25 @@ const TableView = ({ data, columns }) => {
     setSortedData(sorted);
   };
 
+  const exportToCSV = () => {
+    const csvData = [];
+    const headers = columns.map((column) => column.label);
+  
+    csvData.push(headers.join(","));
+  
+    sortedData.forEach((row) => {
+      const rowData = columns.map((column) => row[column.key]);
+      csvData.push(rowData.join(","));
+    });
+  
+    const csvString = csvData.join("\n");
+    const encodedUri = encodeURI(`data:text/csv;charset=utf-8,${csvString}`);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "sorted_data.csv");
+    link.click();
+  };
+
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = sortedData.slice(indexOfFirstRow, indexOfLastRow);
@@ -65,10 +84,17 @@ const TableView = ({ data, columns }) => {
             const song = await getSong(searchStr);
             console.log("Song:", song);
             setSortedData([song]);
+            handlePageChange(1);
         }
     }}>
         Find
     </button>
+    <button className="search-button" onClick={async ()=>{
+        exportToCSV();
+    }}>
+        Export
+    </button>
+
 
     </div>
       <table className="styled-table">

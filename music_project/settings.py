@@ -129,27 +129,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
 
 
-# LOGGING = {
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     "handlers": {
-#         "file": {
-#             "level": "DEBUG",
-#             "class": "logging.FileHandler",
-#             "filename": "song_playlist_api/logs/debug.log",
-#         },
-#         'console': {
-#             "level": "INFO",
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     "loggers": {
-#         "django": {
-#             "handlers": ["console","file"],
-#             "level": "DEBUG",
-#             "propagate": True,
-#         },
-#     },
-# }
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "song_playlist_api/logs/debug.log",
+        },
+        'console': {
+            "level": "INFO",
+            'class': 'logging.StreamHandler',
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console","file"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    },
+}
 
 DEBUG = True

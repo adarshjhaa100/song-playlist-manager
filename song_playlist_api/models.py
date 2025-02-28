@@ -20,6 +20,9 @@ class Song(models.Model):
                 check=Q(star_rating__gte=0) & Q(star_rating__lte=5), name='star_rating_value_range'
             )
         ]
+        indexes = [
+            models.Index(fields=['title'], name='title_idx'),
+        ]
         app_label = 'song_playlist_api'
 
     def __str__(self):
